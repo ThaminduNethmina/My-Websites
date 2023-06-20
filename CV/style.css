@@ -1,0 +1,205 @@
+
+body{
+    position: relative;
+    margin: 0;
+    height: 200%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    background-image: linear-gradient(to bottom right, rgb(88, 182, 119),rgb(20, 103, 141)); 
+    z-index: 1;
+    
+}
+
+.grad {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
+    background-image: linear-gradient(to bottom right, rgb(120, 103, 216), rgb(214, 83, 164));
+    animation-name: change;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes change {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.container {
+    display: flex;
+    box-sizing: border-box;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px black;
+}
+
+aside {
+    flex: 1.2;
+    padding: 15px;
+    background-color: rgb(247, 247, 247);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+main {
+    flex: 2;
+    background-image: linear-gradient(to bottom right, rgb(171, 217, 231), rgb(191, 157, 214));
+    padding: 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.header h1 {
+    line-height: 3px;
+}
+
+.header h3 {
+    color: gray;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+
+
+main section h3 {
+    background-color: rgb(247, 247, 247);
+    padding: 5px;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+main section div {
+    margin-bottom: 35px;
+    padding-left: 5px;
+    transition: transform 0.5s ease;
+}
+
+main section div:hover {
+    transform: scale(1.1) translate(20px);
+}
+
+main section div p, main section div li {
+    font-size: 14px;
+}
+
+main section div p {
+    line-height: 5px;
+    color: rgb(90, 83, 83);
+}
+
+main section div ul {
+    list-style-type: circle;
+    padding-left: 18px;
+    margin-top: 1px;
+}
+
+main section div p b {
+    color: darkslategrey;
+}
+
+h4 {
+    text-transform: uppercase;
+    line-height: 3px;
+    color: darkslateblue;
+}
+
+img {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100px;
+    border: 2px solid rgb(12, 29, 126);
+    transition: transform 1s ease;
+}
+
+img:hover {
+    transform: scale(1.2);
+}
+
+aside h3 {
+    text-transform: uppercase;
+    line-height: 0.5;
+}
+
+aside p {
+    text-align: justify;
+    font-size: 14px;
+    
+}
+
+aside section {
+    margin-top: 20px;
+    margin-bottom: 40;
+}
+
+i {
+    width: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: darkslateblue;
+}
+
+.bar {
+    width: 200px;
+    border: 2px solid darkslateblue;
+}
+
+.bar, .p-25,.p-50, .p-75 {
+    height: 10px;
+    border-radius: 8px;
+}
+
+.p-25, .p-50, .p-75 {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0; 
+    background-color: darkslateblue;
+}
+
+.p-25 {
+    width: 50px;
+}
+
+.p-50{
+    width: 100px;
+}
+
+.p-75 {
+    width: 150px;
+}
+
+.skill {
+    font-size: 14px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    transition: transform 0.5s ease;
+}
+
+.skill:hover {
+    transform: scale(1.2) translate(35px);
+}
+
+footer {
+    margin-top: 20px;
+    color: whitesmoke;
+}
+
+
+
+
+
