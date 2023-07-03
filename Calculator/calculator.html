@@ -18,6 +18,8 @@
   </header>
 
   <main class="container p-5 pt-4">
+
+    <!-- Calculator Displays -->
     <div class="row justify-content-center">
       <div id="cal-history" class="col-12 col-md-6 text-end display-6 bg-dark text-light p-1 px-3 shadow">0</div>
     </div>
@@ -25,6 +27,7 @@
       <div id="cal-display" class="col-12 col-md-6 text-end display-4 bg-dark text-light p-2 px-3 shadow">0</div>
     </div>
 
+    <!-- Calculator Controls -->
     <div class="cal-controls row my-4">
       <div class="d-flex justify-content-between justify-content-sm-center mb-1">
         <button class="btn btn-danger me-1" onclick="clearDisplay()"><span class="display-6">AC</span></button>
@@ -57,7 +60,9 @@
         <button class="btn btn-warning" onclick="displayOperator('=')"><span class="display-6">=</span></button>
       </div>
     </div>
+
   </main>
+  
   <footer class="bg-dark p-4 text-light text-center">
     &copy Thamindu Nethmina
   </footer>

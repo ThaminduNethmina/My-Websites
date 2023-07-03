@@ -1,10 +1,18 @@
-let numbers = [];
-let operators = [];
+let numbers = []; // Array of numbers to be calculated
+let operators = []; // Array of operators to be calculated
 
+/**
+ * Adds number to numbers array
+ * @param {*} number to be added to numbers array
+ */
 function addNumber(number) {
     numbers.push(number);
 }
 
+/**
+ * Adds operator to operators array
+ * @param {*} operator to be added to operators array
+ */
 function addOperator(operator) {
     if (operator == "=") {
         displayResult();
@@ -14,6 +22,10 @@ function addOperator(operator) {
     }
 }
 
+/**
+ * Calculates result of numbers and operators
+ * @returns result of calculation
+ */
 function calculate() {
     let result = numbers[0];
     for (let i = 0; i < operators.length; i++) {
@@ -41,6 +53,10 @@ function calculate() {
     return result;
 }
 
+/**
+ * Displays number on calculator
+ * @param {*} number to be displayed on calculator
+ */
 function displayNumber(number) {
     let display = document.getElementById("cal-display");
     if (display.innerHTML === "0") {
@@ -50,6 +66,10 @@ function displayNumber(number) {
     }
 }
 
+/**
+ * Displays operator on calculator
+ * @param {*} operator to be displayed on calculator
+ */
 function displayOperator(operator) {
     let history = document.getElementById("cal-history");
     let display = document.getElementById("cal-display");
@@ -80,11 +100,17 @@ function displayOperator(operator) {
     addOperator(operator);
 }
 
+/**
+ * Displays the percentage of the number
+ */
 function displayPercentage() {
     let display = document.getElementById("cal-display");
     display.innerHTML = Number(display.innerHTML) * 100;
 }
 
+/**
+ * Changes number to negative or positive
+ */
 function displayPlusMinus() {
     let display = document.getElementById("cal-display");
     let num = Number(display.innerHTML);
@@ -96,11 +122,18 @@ function displayPlusMinus() {
     }
 }
 
+/**
+ * Displays the result of the calculation
+ */
 function displayResult() {
     let display = document.getElementById("cal-display");
     display.innerHTML = calculate();
 }
 
+/**
+ * Clears the display and history
+ * Resets numbers and operators arrays
+ */
 function clearDisplay() {
     let display = document.getElementById("cal-display");
     let history = document.getElementById("cal-history");
