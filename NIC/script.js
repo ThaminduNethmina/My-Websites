@@ -1,0 +1,92 @@
+var calcBtn = document.getElementById("calc");
+calcBtn.addEventListener("click", function () {
+    document.getElementById("result").classList.add("d-none");
+    document.getElementById("nic").classList.remove("is-invalid");
+    document.getElementById("nic").classList.remove("is-valid");
+
+    var nic = document.getElementById("nic").value;
+    if (!(nic.length == 10 || nic.length == 12)) {
+        document.getElementById("nic").classList.add("is-invalid");
+        return;
+    }
+    else if (nic.length == 10) {
+        if (nic[9] != "v" && nic[9] != "V") {
+            document.getElementById("nic").classList.add("is-invalid");
+            return;
+        }
+        else {
+            let num = new Number(nic.substring(0, 9));
+            if (isNaN(num)) {
+                document.getElementById("nic").classList.add("is-invalid");
+                return;
+            }
+            let year = new Number("19" + nic.substring(0, 2));
+            let days = new Number(nic.substring(2, 5));
+            calculate(year, days);
+        }
+    }
+    else if (nic.length == 12) {
+        let num = new Number(nic.substring(0, 12));
+        if (isNaN(num)) {
+            document.getElementById("nic").classList.add("is-invalid");
+            return;
+        }
+        let year = nic.substring(0, 4);
+        let days = nic.substring(4, 7);
+
+        calculate(year, days);
+    }
+}
+);
+
+function calculate(year, days) {
+    document.getElementById("nic").classList.remove("is-invalid");
+    document.getElementById("nic").classList.add("is-valid");
+    document.getElementById("gender").innerHTML = (days > 500) ? "Female" : "Male";
+
+    days = (days > 500) ? days - 500 : days;
+
+    const date = new Date(year, 0);
+
+    date.setDate(0);
+    date.setMonth(0);
+    date.setDate(days);
+
+    const months = [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+    let month = months[date.getMonth()];
+    let day = date.getDate();
+    let sup = "";
+    if (day == 1 || day == 21 || day == 31) {
+        sup = "st";
+    }
+    else if (day == 2 || day == 22) {
+        sup = "nd";
+    }
+    else if (day == 3 || day == 23) {
+        sup = "rd";
+    }
+    else {
+        sup = "th";
+    }
+    document.getElementById("dob").innerHTML = `${day}<sup>${sup}</sup> of ${month} ${year}`;
+    document.getElementById("result").classList.remove("d-none");
+}
+
+var form = document.getElementById("nic-form");
+form.addEventListener("keypress", function (e) {
+    if (e.key == "Enter") {
+        e.preventDefault();
+        document.getElementById("calc").click();
+    }
+});
+
+var reset = document.getElementById("reset");
+reset.addEventListener("click", function () {
+    document.getElementById("nic").classList.remove("is-invalid");
+    document.getElementById("nic").classList.remove("is-valid");
+    document.getElementById("result").classList.add("d-none");
+    document.getElementById("nic").value = "";
+});
