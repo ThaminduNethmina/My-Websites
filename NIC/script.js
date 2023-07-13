@@ -39,6 +39,10 @@ calcBtn.addEventListener("click", function () {
 }
 );
 
+function isLeapYear(year) {
+    return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+  }
+
 function calculate(year, days) {
     document.getElementById("nic").classList.remove("is-invalid");
     document.getElementById("nic").classList.add("is-valid");
@@ -46,18 +50,16 @@ function calculate(year, days) {
 
     days = (days > 500) ? days - 500 : days;
 
-    const date = new Date(year, 0);
-
-    date.setDate(0);
-    date.setMonth(0);
-    date.setDate(days);
+    var date = moment.utc().year(year).dayOfYear(days);
+    isLeapYear(year) ? date.dayOfYear(days) : date.dayOfYear(days - 1);
+    date = date.format("YYYY-MM-DD");
 
     const months = [
         "Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ];
-    let month = months[date.getMonth()];
-    let day = date.getDate();
+    let month = months[date.split("-")[1] - 1];
+    let day = date.split("-")[2];
     let sup = "";
     if (day == 1 || day == 21 || day == 31) {
         sup = "st";
