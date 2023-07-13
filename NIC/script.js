@@ -51,7 +51,7 @@ function calculate(year, days) {
     days = (days > 500) ? days - 500 : days;
 
     var date = moment.utc().year(year).dayOfYear(days);
-    isLeapYear(year) ? date.dayOfYear(days) : date.dayOfYear(days - 1);
+    (isLeapYear(year)) ? date.dayOfYear(days) : (days > 59) ? date.dayOfYear(days - 1) : date.dayOfYear(days);
     date = date.format("YYYY-MM-DD");
 
     const months = [
